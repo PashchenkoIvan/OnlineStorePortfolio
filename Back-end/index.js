@@ -1,10 +1,13 @@
 import express from "express";
 import mongoose from 'mongoose';
-import cors from 'cors'
-import os from 'os'
+import cors from 'cors';
+import os from 'os';
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const port = 3030;
-const url = "mongodb+srv://vanapasenko886:ifkmipXrDIIkeQUc@store-cluster.jamblw7.mongodb.net/?retryWrites=true&w=majority"
+const url = process.env.MONGO_URL;
 const hostname = os.hostname();
 const server_url = `http://${hostname}:${port}`
 
