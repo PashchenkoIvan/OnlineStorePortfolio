@@ -14,7 +14,6 @@ if (!fs.existsSync('.env')) {
 dotenv.config()
 
 const port = 3030;
-const url = process.env.MONGO_URL;
 const hostname = os.hostname();
 const server_url = `http://${hostname}:${port}`
 
@@ -57,7 +56,7 @@ app.delete('/deleteItem/:id', async (req, res) => {
     res.send(product);
 });
 
-mongoose.connect(url).then(() => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
     app.listen(port, () => console.log(`Server is working` + "\n" + `Server URL: ${server_url}`))
 }).catch((error) => {
     console.log(error)
