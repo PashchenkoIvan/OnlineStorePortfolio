@@ -1,0 +1,7 @@
+.navbarContainer {
+  @apply flex gap-[10px] items-center text-[#000] text-[18px] font-semibold;
+
+  a:hover {
+    @apply text-[#424242] transition-all;
+  }
+}
