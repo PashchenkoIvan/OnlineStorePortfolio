@@ -3,6 +3,13 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import os from 'os';
 import dotenv from 'dotenv';
+import fs from "fs";
+
+if (!fs.existsSync('.env')) {
+    fs.writeFileSync('.env', 'MONGO_URL=');
+    console.log('Created .env file. Please add your MongoDB URL to the .env file and restart the server.');
+    process.exit();
+}
 
 dotenv.config()
 
